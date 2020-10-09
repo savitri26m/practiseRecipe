@@ -1,0 +1,28 @@
+<app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
+<hr>
+<app-even [evenNum]="e" *ngFor="let e of evenNumber">
+</app-even>
+<br>
+<app-odd [oddNum]="o" *ngFor="let o of oddNumber">
+</app-odd>
+
+
+<hr>
+<div class="container">
+  <app-cockpit (serverCreated)="onAddServerAdded($event)" (blueprintCreated)="onAddBlueprintAdded($event)">
+  </app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement">
+        <!-- example of ng-content -->
+        <p>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+        </p>
+        <!-- example of ng-content -->
+      </app-server-element>
+
+    </div>
+  </div>
+</div>

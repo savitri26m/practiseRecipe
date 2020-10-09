@@ -1,0 +1,15 @@
+<h2>Shopping List</h2>
+<hr>
+<div class="row">
+    <div class="col-md-10">
+        <app-shopping-edit (ingridientAdded)="onIngridientAdded($event)" ></app-shopping-edit>
+        <hr>
+        <ul class="list-group"> 
+            <a href="#" class="list-group-item"
+            *ngFor="let ingridient of ingridients"
+            style="cursor: pointer;">
+            {{ingridient.name}} | {{ingridient.amount}}
+            </a>
+        </ul>
+    </div>
+</div>
